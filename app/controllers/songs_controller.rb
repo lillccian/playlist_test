@@ -26,6 +26,12 @@ class SongsController < ApplicationController
 		@song.update(song_params)
 		redirect_to :action => :index
 	end
+
+	def destroy
+		@song = Song.find(params[:id])
+		@song.destroy
+		redirect_to :action => :index
+	end
 		
 	private
 
