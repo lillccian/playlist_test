@@ -1,17 +1,6 @@
 <%= form_for @song,:url=>song_path,:method=>:patch do |s| %>
 	<ul>
-		<li>
-			<%= s.label :name,"Song Name" %>
-			<%= s.text_field :name %>
-		</li>
-		<li>
-			<%= s.label :link,"Link" %>
-			<%= s.text_area :link %>
-		</li>
-		<li>
-			<%= s.label :user,"User Name" %>	
-			<%= s.text_field :user %>	
-		</li>	
+		<%= render :partial => "form",:locals => { :s =>s } %>
 		<li>
 			<%= link_to "Back", songs_path %>
 			<%= s.submit "Save" %>

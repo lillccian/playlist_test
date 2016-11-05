@@ -1,12 +1,9 @@
 <%= form_for @song, :url => songs_path do |s|%>
-	<%= s.label :name,"Song Name" %>
-	<%= s.text_field :name %>
-
-	<%= s.label :link,"Link" %>
-	<%= s.text_area :link %>
-
-	<%= s.label :user,"User Name" %>	
-	<%= s.text_field :user %>	
+<ul>
+	<%= render :partial => "form",:locals => { :s =>s } %>
 	
-	<%= s.submit "Create" %>
+		<%= link_to "Back", songs_path %>
+		<%= s.submit "Create" %>
+
+</ul>
 <% end %>
