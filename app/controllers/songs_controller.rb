@@ -11,6 +11,7 @@ class SongsController < ApplicationController
 	def create
 		@song = Song.new(song_params)
 		if @song.save
+			flash[:notice] = "新增成功"
 			redirect_to :action => :index
 		else
 			render :action => :new
@@ -19,6 +20,7 @@ class SongsController < ApplicationController
 
 	def update
 		if @song.update(song_params)
+			flash[:notice] = "修改成功"
 			redirect_to :action => :index
 		else
 			render :action => :edit
@@ -27,6 +29,7 @@ class SongsController < ApplicationController
 
 	def destroy
 		@song.destroy
+		flash[:notice] = "刪除成功"
 		redirect_to :action => :index
 	end
 		

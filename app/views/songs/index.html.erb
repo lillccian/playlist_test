@@ -1,6 +1,5 @@
 <%= Time.now %>
 <table class="table table-hover table-bordered">
-<ul>
 	<tr>
 		<th>Song</th>
 		<th>YouTube Link</th>
@@ -19,6 +18,5 @@
 		<td><%= link_to "",song_path(s),:method=>:delete,:class=>"btn btn-danger glyphicon glyphicon-trash"%></td>
 	</tr>
 	<% end %>
-</ul>
 </table>
 <%= link_to "",new_song_path,:class=>"btn btn-success glyphicon glyphicon-plus pull-right"%>

@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # lillccian
 gem 'faker'
 gem 'bootstrap-sass'
-
+gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
