@@ -1,6 +1,15 @@
-<%= @song.name %>
-<ul>
-	<li><%= @song.link %></li>
-	<li><%= @song.user %></li>
-</ul>
-<%= link_to "Back",songs_path %>
+<p></p>
+<div class="panel panel-default">
+	<div class="panel-heading"><%= @song.name %></div>
+	<table class="table table-bordered">
+		<tr>
+			<th>Link</th>
+			<td><%= @song.link %></td>
+		</tr>
+		<tr>
+			<th>User</th>
+			<td><%= @song.user %></td>
+		</tr>
+	</table>
+</div>
+<%= link_to "Back",songs_path,:class=>"btn btn-default" %>

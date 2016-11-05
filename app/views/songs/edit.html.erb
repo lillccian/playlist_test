@@ -1,9 +1,14 @@
+<div class="panel panel-default">
+
+	<div class="panel-heading">New Song</div>
+		<table class="table table-bordered">
 <%= form_for @song,:url=>song_path,:method=>:patch do |s| %>
-	<ul>
-		<%= render :partial => "form",:locals => { :s =>s } %>
-		<li>
-			<%= link_to "Back", songs_path %>
-			<%= s.submit "Save" %>
-		</li>
-	</ul>
-<% end %>	
+			<%= render :partial => "form",:locals => { :s =>s } %>
+		</table>
+
+</div>
+
+	<%= link_to "Back", songs_path, :class=>"btn btn-default" %>
+	<%= s.submit "Save",:class=>"btn btn-default" %>
+
+<% end %>

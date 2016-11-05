@@ -1,9 +1,14 @@
-<%= form_for @song, :url => songs_path do |s|%>
-<ul>
-	<%= render :partial => "form",:locals => { :s =>s } %>
-	
-		<%= link_to "Back", songs_path %>
-		<%= s.submit "Create" %>
+<div class="panel panel-default">
 
-</ul>
+	<div class="panel-heading">New Song</div>
+		<table class="table table-bordered">
+<%= form_for @song, :url => songs_path do |s|%>			
+			<%= render :partial => "form",:locals => { :s =>s } %>
+		</table>
+
+</div>
+
+	<%= link_to "Back", songs_path, :class=>"btn btn-default" %>
+	<%= s.submit "Create",:class=>"btn btn-default" %>
+
 <% end %>

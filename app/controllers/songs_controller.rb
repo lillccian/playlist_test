@@ -10,13 +10,19 @@ class SongsController < ApplicationController
 
 	def create
 		@song = Song.new(song_params)
-		@song.save
-		redirect_to :action => :index
+		if @song.save
+			redirect_to :action => :index
+		else
+			render :action => :new
+		end
 	end
 
 	def update
-		@song.update(song_params)
-		redirect_to :action => :index
+		if @song.update(song_params)
+			redirect_to :action => :index
+		else
+			render :action => :edit
+		end
 	end
 
 	def destroy

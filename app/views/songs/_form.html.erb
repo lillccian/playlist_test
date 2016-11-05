@@ -1,12 +1,12 @@
-<li>
-	<%= s.label :name,"Song Name" %>
-	<%= s.text_field :name %>
-</li>
-<li>
-	<%= s.label :link,"Link" %>
-	<%= s.text_area :link %>
-</li>
-<li>
-	<%= s.label :user,"User Name" %>	
-	<%= s.text_field :user %>	
-</li>	
+<tr>
+	<td><%= s.label :name,"Song" %></td>
+	<td><%= s.text_field :name ,:class=>"form-control"%></td>
+</tr>
+<tr>
+	<td><%= s.label :link,"Link" %></td>
+	<td><%= s.text_area :link,:class=>"form-control" %></td>
+</tr>
+<tr>
+	<td><%= s.label :user,"User Name" %></td>
+	<td><%= s.text_field :user,:class=>"form-control" %></td>
+</tr>
