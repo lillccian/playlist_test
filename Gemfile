@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # lillccian
 gem 'faker'
-
+gem 'bootstrap-sass'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
