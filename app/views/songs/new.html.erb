@@ -1,0 +1,12 @@
+<%= form_for @song, :url => songs_path do |s|%>
+	<%= s.label :name,"Song Name" %>
+	<%= s.text_field :name %>
+
+	<%= s.label :link,"Link" %>
+	<%= s.text_area :link %>
+
+	<%= s.label :user,"User Name" %>	
+	<%= s.text_field :user %>	
+	
+	<%= s.submit "Create" %>
+<% end %>
