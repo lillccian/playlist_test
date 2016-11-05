@@ -10,7 +10,9 @@ class SongsController < ApplicationController
 		@song.save
 		redirect_to :action => :index
 	end
-	
+	def show
+		@song = Song.find(params[:id])
+	end
 	private
 	def song_params
 		params.require(:song).permit(:name,:link,:user)
