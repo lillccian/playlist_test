@@ -15,3 +15,26 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.pagination a, .pagination span.current, .pagination span.gap {
+    float: left;
+    padding: 0 14px;
+	color:black;
+    line-height: 34px;
+    text-decoration: none;
+    border: 1px solid #DDD;
+    border-left-width: 0;
+    &:hover{
+    	background-color: #23C2E1;
+    	color:white;
+    }
+}
+.pagination {
+	float:right;
+    margin: 0 0 0 0;
+    border-left: 1px solid #ddd;
+    span.current{
+    	color :#23C2E1;
+    	font-size: 2rem;
+    }
+}

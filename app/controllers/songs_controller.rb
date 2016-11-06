@@ -1,7 +1,10 @@
 class SongsController < ApplicationController
 	before_action :set_song, :only => [ :show, :edit, :update, :destroy ]
+	@@page = 1
 	def index
-		@songs = Song.page(params[:page]).per(10)
+		@@page = params[:page]
+		@songs = Song.page(params[:page]).per(5)
+		@song = Song.new
 	end
 
 	def new 
@@ -14,7 +17,8 @@ class SongsController < ApplicationController
 			flash[:notice] = "新增成功"
 			redirect_to :action => :index
 		else
-			render :action => :new
+			@songs = Song.page(params[:page]).per(5)
+			render :action => :index
 		end
 	end
 
@@ -26,11 +30,12 @@ class SongsController < ApplicationController
 			render :action => :edit
 		end
 	end
-
+	
 	def destroy
+		
 		@song.destroy
 		flash[:notice] = "刪除成功"
-		redirect_to :action => :index
+		redirect_to songs_path+"?page=#{@@page}"
 	end
 		
 	private

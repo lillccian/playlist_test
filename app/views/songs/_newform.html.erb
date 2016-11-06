@@ -1,0 +1,12 @@
+<tr>
+	<td><%= s.text_field :name ,:class=>"form-control",:placeholder=>"Song"%></td>
+	<td><%= s.text_field :link,:class=>"form-control" ,:placeholder=>"Link"%></td>
+	<td><%= s.text_field :user,:class=>"form-control" ,:placeholder=>"User"%></td>
+	<td></td>
+	<td>
+		<%= link_to "", songs_path, :class=>"btn btn-default glyphicon glyphicon-remove" %>
+	</td>
+	<td>
+		<%= s.submit "＋",:class=>"btn btn-success" %>
+	</td>
+</tr>
