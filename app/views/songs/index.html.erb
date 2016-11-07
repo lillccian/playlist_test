@@ -1,29 +1,29 @@
-<%= Time.now.asctime %>
-<%= params[:page] %>
+<%= form_for @song, :url => songs_path do |s|%>			
+	<%= render :partial => "newform",:locals => { :s =>s } %>
+<% end %>
 <table class="table table-hover table-bordered">
 	<tr>
-		<th>Song</th>
-		<th>YouTube Link</th>
-		<th>User</th>
-		<th>Info</th>
-		<th>Edit</th>
-		<th>Delete</th>
+		<td>Song</td>
+		<td>YouTube Link</td>
+		<td>User</td>
+		<td>Info</td>
+		<td>Edit</td>
+		<td>Delete</td>
 	</tr>
 	<% @songs.each do |s| %>
 	<tr>
-		<td><%= s.name %></td>
+		<td width="15%"><%= s.name %></td>
 		<td><%= s.link %></td>
-		<td><%= s.user %></td>
-		<td><%= link_to "",song_path(s),:class=>"btn btn-info glyphicon glyphicon-search"%></td>
-		<td><%= link_to "",edit_song_path(s),:class=>"btn btn-default glyphicon glyphicon-pencil"%></td>
-		<td><%= link_to "",song_path(s),:method=>:delete,:class=>"btn btn-danger glyphicon glyphicon-trash"%></td>
+		<td width="15%"><%= s.user %></td>
+		<td width="5%"><%= link_to "",song_path(s),:class=>"btn btn-info glyphicon glyphicon-search"%></td>
+		<td width="5%"><%= link_to "",edit_song_path(s),:class=>"btn btn-default glyphicon glyphicon-pencil"%></td>
+		<td width="5%"><%= link_to "",song_path(s),:method=>:delete,:class=>"btn btn-danger glyphicon glyphicon-trash"%></td>
 	</tr>
 	<% end %>
-	<%= form_for @song, :url => songs_path do |s|%>			
-		<%= render :partial => "newform",:locals => { :s =>s } %>
-	<% end %>
+
 </table>
-<%= paginate @songs %>
+<%= Time.now.asctime %>
+<%= paginate @songs , :window => 1 %>
 
 
 

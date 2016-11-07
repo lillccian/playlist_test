@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
 	before_action :set_song, :only => [ :show, :edit, :update, :destroy ]
-	@@page = 1
+	@@page = 0
 	def index
 		@@page = params[:page]
 		@songs = Song.page(params[:page]).per(5)
