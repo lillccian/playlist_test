@@ -25,17 +25,16 @@ class SongsController < ApplicationController
 	def update
 		if @song.update(song_params)
 			flash[:notice] = "修改成功"
-			redirect_to :action => :index
+			redirect_to  songs_path(:page=>params[:page])
 		else
 			render :action => :edit
 		end
 	end
 	
 	def destroy
-		
 		@song.destroy
 		flash[:notice] = "刪除成功"
-		redirect_to songs_path+"?page=#{@@page}"
+		redirect_to songs_path(:page=>params[:page])
 	end
 		
 	private

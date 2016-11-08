@@ -1,9 +1,9 @@
 
 
-<%= form_for @song,:url=>song_path,:method=>:patch do |s| %>
+<%= form_for @song,:url=>song_path(:page=>params[:page]),:method=>:patch do |s| %>
 			<%= render :partial => "form",:locals => { :s =>s } %>
-
-	<%= link_to "Back", songs_path, :class=>"btn btn-default" %>
-	<%= s.submit "Save",:class=>"btn btn-default" %>
+	<%= s.submit "Save",:class=>"btn btn-default pull-right" %>
+	<%= link_to "Back", songs_path(:page=>params[:page]), :class=>"btn btn-default pull-right" %>
+	
 
 <% end %>

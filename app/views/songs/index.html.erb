@@ -1,23 +1,24 @@
 <%= form_for @song, :url => songs_path do |s|%>			
 	<%= render :partial => "newform",:locals => { :s =>s } %>
 <% end %>
+
 <table class="table table-hover table-bordered">
 	<tr>
-		<td>Song</td>
+		<td width="15%">Song</td>
 		<td>YouTube Link</td>
-		<td>User</td>
-		<td>Info</td>
-		<td>Edit</td>
-		<td>Delete</td>
+		<td width="15%">Uploaded By</td>
+		<td width="5%">Info</td>
+		<td width="5%">Edit</td>
+		<td width="5%">Delete</td>
 	</tr>
 	<% @songs.each do |s| %>
 	<tr>
-		<td width="15%"><%= s.name %></td>
+		<td><%= s.name %></td>
 		<td><%= s.link %></td>
-		<td width="15%"><%= s.user %></td>
-		<td width="5%"><%= link_to "",song_path(s),:class=>"btn btn-info glyphicon glyphicon-search"%></td>
-		<td width="5%"><%= link_to "",edit_song_path(s),:class=>"btn btn-default glyphicon glyphicon-pencil"%></td>
-		<td width="5%"><%= link_to "",song_path(s),:method=>:delete,:class=>"btn btn-danger glyphicon glyphicon-trash"%></td>
+		<td><%= s.user %></td>
+		<td><%= link_to "",song_path(s,:page=>params[:page]),:class=>"btn btn-info glyphicon glyphicon-search"%></td>
+		<td><%= link_to "",edit_song_path(s,:page => params[:page]),:class=>"btn btn-default glyphicon glyphicon-pencil"%></td>
+		<td><%= link_to "",song_path(s,:page => params[:page]),:method=>:delete,:data=>{:confirm=>"Are you sure?"},:class=>"btn btn-danger glyphicon glyphicon-trash"%></td>
 	</tr>
 	<% end %>
 
