@@ -1,14 +1,15 @@
 <table class="table table-hover table-bordered">
 <tr>
-	<td width="15%"><%= s.text_field :name ,:class=>"form-control",:placeholder=>"Song"%></td>
+	<td width="15%"><%= s.text_field :name ,:class=>"form-control",:placeholder=>"Song Name"%></td>
 	<td><%= s.text_field :link,:class=>"form-control" ,:placeholder=>"YouTube Link"%></td>
 	<td width="20%"><%= s.text_field :user,:class=>"form-control" ,:placeholder=>"
-Uploaded By"%></td>
+User Name"%></td>
 	<td width="5%">
-		<%= link_to "", songs_path, :class=>"btn btn-default glyphicon glyphicon-remove" %>
+		<%= link_to "", songs_path(:page=>params[:page]), :class=>"btn btn-default glyphicon glyphicon-remove" %>
 	</td>
 	<td width="5%">
 		<%= s.submit "＋",:class=>"btn btn-success" %>
 	</td>
 </tr>
 </table>
+

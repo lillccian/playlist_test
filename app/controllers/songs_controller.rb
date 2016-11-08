@@ -1,10 +1,13 @@
 class SongsController < ApplicationController
 	before_action :set_song, :only => [ :show, :edit, :update, :destroy ]
-	@@page = 0
 	def index
-		@@page = params[:page]
+		if params[:id]
+			@song = Song.find(params[:id])
+		else
+			@song = Song.new
+		end
 		@songs = Song.page(params[:page]).per(5)
-		@song = Song.new
+		
 	end
 
 	def new 
@@ -15,9 +18,10 @@ class SongsController < ApplicationController
 		@song = Song.new(song_params)
 		if @song.save
 			flash[:notice] = "新增成功"
-			redirect_to :action => :index
+			redirect_to  songs_path(:page=>params[:page])
 		else
 			@songs = Song.page(params[:page]).per(5)
+			flash[:alert] = "新增失敗"
 			render :action => :index
 		end
 	end
