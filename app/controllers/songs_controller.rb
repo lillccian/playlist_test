@@ -31,7 +31,9 @@ class SongsController < ApplicationController
 			flash[:notice] = "修改成功"
 			redirect_to  songs_path(:page=>params[:page])
 		else
-			render :action => :edit
+			@songs = Song.page(params[:page]).per(5)
+			flash[:alert] = "修改失敗"
+			render :action => :index
 		end
 	end
 	
