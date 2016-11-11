@@ -10,10 +10,6 @@ class SongsController < ApplicationController
 		
 	end
 
-	def new 
-		@song = Song.new
-	end
-
 	def create
 		@song = Song.new(song_params)
 		if @song.save
